@@ -5,14 +5,14 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a href="{{ route('post.index') }}">
+                    <a href="{{ route('store.index') }}">
                         <img src="{{asset('logo/logo.svg')}}" style="max-height:110px;">
                     </a>
                 </div>
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('post.index')" :active="request()->routeIs('post.index')">
+                    <x-nav-link :href="route('store.index')" :active="request()->routeIs('store.index')">
                         HOME
                     </x-nav-link>
                     <x-nav-link :href="route('post.create')" :active="request()->routeIs('post.create')">
@@ -23,6 +23,9 @@
                     </x-nav-link>
                     <x-nav-link :href="route('post.mycomment')" :active="request()->routeIs('post.mycomment')">
                         コメントした投稿
+                    </x-nav-link>
+                    <x-nav-link :href="route('store.create')" :active="request()->routeIs('contact.create')">
+                        お店登録
                     </x-nav-link>
                     <x-nav-link :href="route('contact.create')" :active="request()->routeIs('contact.create')">
                         お問い合わせ
