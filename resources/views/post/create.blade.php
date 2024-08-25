@@ -3,9 +3,7 @@
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             投稿の新規作成
         </h2>
-
         <x-validation-errors class="mb-4" :errors="$errors" />
-        
         
         <x-message :message="session('message')" />
 

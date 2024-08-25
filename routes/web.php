@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\StoreController;
+
 
 Route::get('post/mypost', [PostController::class, 'mypost'])->name('post.mypost');
 Route::get('post/mycomment', [PostController::class, 'mycomment'])->name('post.mycomment');
@@ -40,3 +42,8 @@ Route::controller(ContactController::class)->group(function(){
     Route::get('contact/create', 'create')->name('contact.create');
     Route::post('contact/store', 'store')->name('contact.store');
 });
+
+
+
+
+Route::resource('store', StoreController::class);

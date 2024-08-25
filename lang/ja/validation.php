@@ -94,9 +94,9 @@ return [
     'mac_address' => 'The :attribute field must be a valid MAC address.',
     'max' => [
         'array' => 'The :attribute field must not have more than :max items.',
-        'file' => 'The :attribute field must not be greater than :max kilobytes.',
-        'numeric' => 'The :attribute field must not be greater than :max.',
-        'string' => 'The :attribute field must not be greater than :max characters.',
+        'file' => ':attributeは:max キロバイト以下で保存してください',
+        'numeric' => ':attribute field must not be greater than :max.',
+        'string' => ':attribute は:max文字以内で入力してください ',
     ],
     'max_digits' => 'The :attribute field must not have more than :max digits.',
     'mimes' => 'The :attribute field must be a file of type: :values.',
@@ -194,7 +194,13 @@ return [
         'title' => '件名',
         'body' => '本文',
         'password' => 'パスワード',
-        'email' => 'メールアドレス'
+        'email' => 'メールアドレス',
+        'store_name' => '店名',
+        'subject' => 'どんな店',
+        'introduction' => '詳しく紹介',
+        'tel' => '電話番号',
+        'address' => '住所',
+        'image' => '画像'
 
     ],
 
