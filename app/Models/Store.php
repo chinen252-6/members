@@ -19,4 +19,9 @@ class Store extends Model
         'image'
 
     ];
+
+    public function region() {
+        return $this->belongsTo(Region::class);
+    }
+
 }

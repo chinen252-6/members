@@ -28,35 +28,41 @@ class StoreController extends Controller
      */
     public function store(Request $request)
     {
-        $inputs=$request->validate([
-            'store_name'=>'required|max:20',
-            'subject'=>'required|max:50',           
-            'introduction'=>'required|max:1000', 
-            'tel'=>'required|max:15',
-            'address'=>'required|max:50',
-            'image'=>'image|max:2048'
+        $inputs = $request->validate([
+            'store_name' => 'required|max:20',
+            'subject' => 'required|max:50',
+            'introduction' => 'required|max:1000',
+            'tel' => 'nullable|max:15', // 任意に変更
+            'address' => 'required|max:50',
+            'address_detail' => 'nullable|max:50', // 任意に変更
+            'region_id' => 'required|exists:regions,id',
+            'image' => 'nullable|image|max:2048' // 任意に変更
         ]);
 
+        $store = new Store();
+        $store->region_id = $request->region_id;
+        $store->store_name = $request->store_name;
+        $store->subject = $request->subject;
+        $store->introduction = $request->introduction;
+        $store->tel = $request->tel;
+        $store->address = $request->address;
 
-        $store=new Store();
-            $store->region_id=$request->region_id;
+        // address_detailが存在する場合に追加
+        if ($request->filled('address_detail')) {
+            $store->address .= ' ' . $request->address_detail;
+        }
 
-            $store->store_name =$request->store_name;
+        // 画像がアップロードされた場合のみ処理
+        if ($request->hasFile('image')) {
+            $original = $request->file('image')->getClientOriginalName();
+            $name = date('Ymd_His') . '_' . $original;
+            $request->file('image')->move('storage/images', $name);
+            $store->image = $name;
+        }
 
-            $store->subject=$request->subject;
-            $store->introduction=$request->subject;
-            $store->tel=$request->tel;
-            $store->address=$request->address;
-            if (request('image')){
-                $original = request()->file('image')->getClientOriginalName();
-                // 日時追加
-               $name = date('Ymd_His').'_'.$original;
-               request()->file('image')->move('storage/images', $name);
-               $store->image = $name;
-            }
-            $store->save();
-            return redirect()->route('store.create')->with('message', 'お店を登録しました');
+        $store->save();
 
+        return redirect()->route('store.create')->with('message', 'お店を登録しました');
     }
 
     /**
