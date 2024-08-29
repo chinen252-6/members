@@ -10,10 +10,19 @@ class StoreController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('store.home');
+        $region_id = $request->input('region_id');
+    
+        if ($region_id) {
+            $stores = Store::where('region_id', $region_id)->get();
+        } else {
+            $stores = Store::all();
+        }
+    
+        return view('store.index', compact('stores'));
     }
+    
 
     /**
      * Show the form for creating a new resource.
