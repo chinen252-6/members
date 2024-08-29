@@ -1,13 +1,20 @@
-<x-guest-layout>
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+        お問い合わせ
+        </h2>
+        <x-validation-errors class="mb-4" :errors="$errors" />
+        
+        <x-message :message="session('message')" />
 
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-yellow-50 h-screen">
+        
+        
+    </x-slot>
+
+
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="mx-4 sm:p-8">
-            <h1 class="text-xl text-gray-700 font-semibold hover:underline cursor-pointer">
-                お問い合わせ
-            </h1>
-            <x-validation-errors class="mb-4" :errors="$errors" />
-            <x-message :message="session('message')" />
-
             <form method="post" action="{{route('contact.store')}}" enctype="multipart/form-data">
                 @csrf
                 <div class="md:flex items-center mt-8">
@@ -35,4 +42,4 @@
             </form>
         </div>
     </div>
-</x-guest-layout>
+</x-app-layout>
