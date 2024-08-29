@@ -67,7 +67,7 @@
                         <img src="https://098free.com/wp-content/uploads/2018/09/038G8A3457_i.jpg" width="150" height="75">
                         <p class="p-tyubu">中部</p>
                         <div class="tyubu-detail-area">
-                            <a href="{{ route('store.index', ['region_id' => 15) }}">沖縄市</a> <br>
+                            <a href="{{ route('store.index', ['region_id' => 15]) }}">沖縄市</a> <br>
                             <a href="{{ route('store.index', ['region_id' => 16]) }}">北谷町</a>  <br>
                             <a href="{{ route('store.index', ['region_id' => 17]) }}">宜野湾市</a>  <br>
                             <a href="{{ route('store.index', ['region_id' => 18]) }}">浦添市</a>  <br>
