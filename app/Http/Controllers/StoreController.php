@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Store;
+use App\Models\Region;
+
 use Illuminate\Http\Request;
 
 class StoreController extends Controller
@@ -11,17 +13,25 @@ class StoreController extends Controller
      * Display a listing of the resource.
      */
     public function index(Request $request)
-    {
-        $region_id = $request->input('region_id');
-    
-        if ($region_id) {
-            $stores = Store::where('region_id', $region_id)->get();
-        } else {
-            $stores = Store::all();
+{
+    $region_id = $request->input('region_id');
+    $region_name = null; // 地域名を格納する変数を初期化
+
+    if ($region_id) {
+        $stores = Store::where('region_id', $region_id)->get();
+
+        // region_id に対応する地域名を取得
+        $region = Region::find($region_id);
+        if ($region) {
+            $region_name = $region->name; // 地域名を取得
         }
-    
-        return view('store.index', compact('stores'));
+    } else {
+        $stores = Store::all();
     }
+
+    // 取得した店舗情報と地域名をビューに渡す
+    return view('store.index', compact('stores', 'region_name'));
+}
     
 
     /**
