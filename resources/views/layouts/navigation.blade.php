@@ -24,7 +24,7 @@
                     <x-nav-link :href="route('post.mycomment')" :active="request()->routeIs('post.mycomment')">
                         コメントした投稿
                     </x-nav-link>
-                    <x-nav-link :href="route('store.create')" :active="request()->routeIs('contact.create')">
+                    <x-nav-link :href="route('store.create')" :active="request()->routeIs('store.create')">
                         お店登録
                     </x-nav-link>
                     <x-nav-link :href="route('contact.create')" :active="request()->routeIs('contact.create')">
