@@ -47,3 +47,7 @@ Route::controller(ContactController::class)->group(function(){
 
 
 Route::resource('store', StoreController::class);
+
+Route::get('/home', function () {
+    return view('home');
+})->name('home');
