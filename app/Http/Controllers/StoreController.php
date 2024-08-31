@@ -89,7 +89,7 @@ class StoreController extends Controller
      */
     public function show(Store $store)
     {
-        //
+        return view('store.show', compact('store'));
     }
 
     /**
