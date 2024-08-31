@@ -12,7 +12,7 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('home')" :active="request()->routeIs('store.index')">
+                    <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
                         HOME
                     </x-nav-link>
                     <x-nav-link :href="route('post.create')" :active="request()->routeIs('post.create')">
