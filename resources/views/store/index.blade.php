@@ -22,7 +22,7 @@
         </div>
         @else
         @foreach ($stores as $store)
-            <a href="#">
+            <a href="{{ route('store.show', ['store' => $store->store_id]) }}">
             <div class="mx-4 sm:p-8">
                 <div class="mt-4">
                     <div class="bg-white w-full rounded-2xl px-10 py-8 shadow-lg hover:shadow-2xl transition duration-500 flex">
