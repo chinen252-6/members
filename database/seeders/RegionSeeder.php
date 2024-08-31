@@ -20,6 +20,7 @@ class RegionSeeder extends Seeder
             ['name' => '松尾'],
             ['name' => '壺屋'],
             ['name' => '牧志'],
+            ['name' => '安里'],
             ['name' => '泉崎'],
             ['name' => 'その他（那覇）'],
             ['name' => '糸満市'],
