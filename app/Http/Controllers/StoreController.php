@@ -89,9 +89,12 @@ class StoreController extends Controller
      */
     public function show(Store $store)
     {
-        return view('store.show', compact('store'));
+        // storeのregion_idを利用して、関連する地域名を取得
+        $region = Region::find($store->region_id);
+        $region_name = $region ? $region->name : '地域未設定';
+    
+        return view('store.show', compact('store', 'region_name'));
     }
-
     /**
      * Show the form for editing the specified resource.
      */
