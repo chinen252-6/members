@@ -6,9 +6,9 @@
         <x-message :message="session('message')" />
     </x-slot>
 
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex justify-center">
         <!-- メインコンテンツ -->
-        <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+        <div class="w-4/5 bg-white rounded-2xl shadow-lg overflow-hidden">
 
             <!-- 店舗名 -->
             <h1 class="p-6 text-3xl font-bold text-gray-800">{{ $store->store_name }}</h1>
@@ -17,8 +17,10 @@
 
             <!-- 画像部分 -->
             @if ($store->image)
-            <div class="w-full h-64 md:h-80 lg:h-96 overflow-hidden">
+            <div class="w-full flex justify-center">
+            <div class="w-3/5 h-64 md:h-80 lg:h-96 overflow-hidden">
                 <img src="{{ asset('storage/images/' . $store->image) }}" alt="{{ $store->store_name }}" class="object-cover w-full h-full">
+            </div>
             </div>
             @else
             <div class="w-full h-64 md:h-80 lg:h-96 flex items-center justify-center bg-gray-100">
@@ -50,6 +52,9 @@
                 <div class="mb-4">
                     <h2 class="text-lg font-semibold text-gray-700">住所</h2>
                     <p class="text-gray-600">{{ $store->address }}</p>
+                </div>
+                <div>
+                <a href="{{ route('review.comment', ['store_id' => $store->store_id]) }}">口コミ投稿</a>
                 </div>
 
                 
