@@ -6,7 +6,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\StoreController;
-
+use App\Http\Controllers\ReviewController;
 
 Route::get('post/mypost', [PostController::class, 'mypost'])->name('post.mypost');
 Route::get('post/mycomment', [PostController::class, 'mycomment'])->name('post.mycomment');
@@ -49,3 +49,9 @@ Route::resource('store', StoreController::class);
 Route::get('/home', function () {
     return view('home');
 })->name('home');
+
+
+
+// Route::resource('review',ReviewController::class);
+Route::get('review/comment/{store_id}', [ReviewController::class, 'create'])->name('review.comment');
+Route::post('review/store', [ReviewController::class, 'store'])->name('review.store');;

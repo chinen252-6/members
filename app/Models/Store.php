@@ -30,4 +30,8 @@ class Store extends Model
         return $this->belongsTo(Region::class);
     }
 
+    public function reviews() {
+        return $this->hasMany(Review::class);
+    }
+
 }
