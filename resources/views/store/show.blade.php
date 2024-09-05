@@ -53,9 +53,13 @@
                     <h2 class="text-lg font-semibold text-gray-700">住所</h2>
                     <p class="text-gray-600">{{ $store->address }}</p>
                 </div>
-                <div>
-                <a href="{{ route('review.comment', ['store_id' => $store->store_id]) }}">口コミ投稿</a>
-                </div>
+                <div class="text-center mt-6">
+    <a href="{{ route('review.comment', ['store_id' => $store->store_id]) }}" class="bg-gradient-to-r from-gray-700 to-gray-900 hover:from-gray-600 hover:to-gray-700 text-white font-medium py-3 px-8 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-102 hover:shadow-xl">
+        口コミを投稿する
+    </a>
+</div>
+
+
 
                 
             </div>
