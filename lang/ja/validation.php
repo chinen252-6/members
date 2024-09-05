@@ -200,7 +200,8 @@ return [
         'introduction' => '詳しく紹介',
         'tel' => '電話番号',
         'address' => '住所',
-        'image' => '画像'
+        'image' => '画像',
+        'rating' => '評価'
 
     ],
 
