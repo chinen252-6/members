@@ -93,7 +93,10 @@ class StoreController extends Controller
         $region = Region::find($store->region_id);
         $region_name = $region ? $region->name : '地域未設定';
     
-        return view('store.show', compact('store', 'region_name'));
+        $reviews = $store->reviews; // リレーションが設定されていることを前提
+
+    return view('store.show', compact('store', 'region_name', 'reviews'));
+
     }
     /**
      * Show the form for editing the specified resource.

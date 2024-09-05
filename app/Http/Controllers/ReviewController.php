@@ -28,11 +28,26 @@ class ReviewController extends Controller
      */
     public function store(Request $request)
     {
+        $inputs=request()->validate([
+            'title'=>'required|max:255',
+            'body'=>'required|max:1000',
+            'image'=>'image|max:1024',
+            'rating' => 'required|integer|between:1,5',
+        ]);
+
+
+
         $review = new Review();
         $review->title =$request->title;
         $review->body =$request->body;
         $review->rating =$request->rating;
         $review->store_id =$request->store_id;
+        if (request('image')){
+            $original = request()->file('image')->getClientOriginalName();
+            $name = date('Ymd_His').'_'.$original;
+            request()->file('image')->move('storage/images', $name);
+            $review->image = $name;
+        }
         $review->save();
         return redirect()->route('review.comment', ['store_id' => $review->store_id])->with('message', '口コミを作成しました');;
     }

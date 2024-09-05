@@ -3,7 +3,7 @@
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             せんべろ店登録
         </h2>
-        <x-validation-errors class="mb-4" :errors="$errors" />
+        <x-validation-errors class="mb-4" :errors="$errors" :requiredFields="['店名', 'どんな店', '詳しく紹介', '住所']" /> 
         <x-message :message="session('message')" />
     </x-slot>
 

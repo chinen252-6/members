@@ -3,7 +3,7 @@
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             口コミ入力
         </h2>
-        <x-validation-errors class="mb-4" :errors="$errors" />
+        <x-validation-errors class="mb-4" :errors="$errors" :requiredFields="['件名', '本文', '評価']"/>
         
         <x-message :message="session('message')" />
 
@@ -20,7 +20,7 @@
                     <input type="hidden" name="store_id" value="{{ $store_id }}">             
                     <div class="md:flex items-center mt-8">
                         <div class="w-full flex flex-col">
-                        <label for="title" class="font-semibold leading-none mt-4">タイトル</label>
+                        <label for="title" class="font-semibold leading-none mt-4">件名</label>
                         <input type="text" name="title" class="w-auto py-2 placeholder-gray-300 border border-gray-300 rounded-md" id="title" value="{{old('title')}}" placeholder="入力必須">
                         </div>
                     </div>
@@ -40,7 +40,7 @@
                 <div class="md:flex items-center mt-8">
                     <div class="w-full flex flex-col">
                         <label for="rating" class="font-semibold leading-none mt-4">評価</label>
-                        <input type="number" name="rating" class="w-auto py-2 placeholder-gray-300 border border-gray-300 rounded-md" id="rating" value="{{ old('rating') }}" placeholder="1から5の範囲で入力" min="1" max="5">
+                        <input type="number" name="rating" class="w-auto py-2 placeholder-gray-300 border border-gray-300 rounded-md" id="rating" value="{{ old('rating') }}" placeholder="半角で1から5の範囲で入力" min="1" max="5">
                     </div>
                 </div>
 

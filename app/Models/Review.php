@@ -18,14 +18,7 @@ class Review extends Model
     ];
 
 
-
-
-
-
-
-
-
     public function store() {
-        return $this->belongsTo(Review::class);
+        return $this->belongsTo(Store::class);
     }
 }

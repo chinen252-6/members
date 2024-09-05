@@ -59,6 +59,21 @@
 
                 
             </div>
+            <h2>口コミ一覧</h2>
+    @if($reviews->isEmpty())
+        <p>この店舗にはまだ口コミがありません。</p>
+    @else
+        <ul>
+            @foreach($reviews as $review)
+                <li>
+                    <h3>{{ $review->title }}</h3>
+                    <p>{{ $review->body }}</p>
+                    <p>評価: {{ $review->rating }} / 5</p>
+                    <p>投稿日: {{ $review->created_at->format('Y-m-d') }}</p>
+                </li>
+            @endforeach
+        </ul>
+    @endif
         </div>
     </div>
 </x-app-layout>
