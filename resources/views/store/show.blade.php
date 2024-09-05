@@ -59,21 +59,58 @@
 
                 
             </div>
-            <h2>口コミ一覧</h2>
-    @if($reviews->isEmpty())
-        <p>この店舗にはまだ口コミがありません。</p>
-    @else
-        <ul>
-            @foreach($reviews as $review)
-                <li>
-                    <h3>{{ $review->title }}</h3>
-                    <p>{{ $review->body }}</p>
-                    <p>評価: {{ $review->rating }} / 5</p>
-                    <p>投稿日: {{ $review->created_at->format('Y-m-d') }}</p>
-                </li>
-            @endforeach
-        </ul>
-    @endif
         </div>
     </div>
+           
+     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex justify-center">
+        <div class="w-4/5 bg-white rounded-2xl shadow-lg overflow-hidden">
+            <h2 class="p-6" >口コミ一覧</h2>
+            @if($reviews->isEmpty())
+                <p class="p-6" >この店舗にはまだ口コミがありません。</p>
+            @else
+                @foreach($reviews as $review)
+                <div class="bg-white p-4 rounded-lg shadow-md my-4">
+                    <div class="flex items-start">
+                <!-- レビュー画像 -->
+                        @if ($review->image)
+                        <div class="w-32 h-32 rounded overflow-hidden mr-4">
+                            <img src="{{ asset('storage/images/' . $review->image) }}" alt="{{ $review->review_title }}" class="object-cover w-full h-full">
+                        </div>
+                        @else
+                        <div class="w-32 h-32 bg-gray-100 flex items-center justify-center mr-4">
+                            <p class="text-center text-gray-500">画像なし</p>
+                        </div>
+                        @endif
+
+                <!-- レビューテキスト -->
+                        <div class="flex-1">
+                            <!-- タイトル -->
+                            <h3 class="text-md font-semibold text-gray-700">{{ $review->title }}</h3>
+
+                            <!-- ボディ -->
+                            <p class="text-gray-600 mt-2">{{ $review->body }}</p>
+
+                            <!-- 投稿日時 -->
+                            <div class="text-gray-500 text-sm mt-2">投稿日: {{ $review->created_at->format('Y-m-d') }}</div>
+
+                            <!-- レビュー評価 -->
+                            <div class="flex items-center mt-2">
+                                <span class="text-yellow-500 text-lg font-bold">
+                                    @for ($i = 0; $i < floor($review->rating); $i++) 
+                                        ★
+                                    @endfor
+                                    @if (($review->rating * 2) % 2 == 1)
+                                        ☆
+                                    @endif
+                                </span>
+                                <span class="ml-2 text-sm text-gray-500">{{ $review->rating }} / 5</span> <!-- 数値評価を表示 -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+            @endif
+        </div>
+     </div>
+        
 </x-app-layout>
