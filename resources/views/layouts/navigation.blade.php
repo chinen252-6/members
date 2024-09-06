@@ -94,6 +94,9 @@
             <x-responsive-nav-link :href="route('post.mycomment')" :active="request()->routeIs('post.mycomment')">
                 コメントした投稿
             </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('store.create')" :active="request()->routeIs('post.mycomment')">
+                お店登録
+            </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('contact.create')" :active="request()->routeIs('contact.create')">
                 お問い合わせ
             </x-responsive-nav-link>
