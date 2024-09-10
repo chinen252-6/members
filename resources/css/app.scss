@@ -3,6 +3,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import "common";
+
 
 .btnsetr {
     @apply inline-flex items-center px-4 py-2 bg-red-600 border border-transparent rounded-md font-semibold text-base text-white uppercase tracking-widest hover:bg-red-700 focus:bg-red-700 active:bg-red-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150 ml-2;
@@ -105,6 +107,17 @@ body{
              
             -webkit-text-stroke: 1px #000;
             font-family: "Kokoro";
+            @include tab {
+                font-size:30px;
+            }
+            @include sp {
+                font-size:25px;
+            }
+            span {
+                @include sp {
+                    display:none;
+                }
+            }
         }
         &__maintext {
             font-size:70px;
@@ -113,6 +126,12 @@ body{
             
             -webkit-text-stroke: 1px #000;
             font-family: "Kokoro";
+            @include tab {
+                font-size:50px;
+            }
+            @include sp {
+                font-size:35px;
+            }
           
             
         
@@ -127,13 +146,26 @@ body{
 
 
 .top-wrapper{
-    height:300px;
+    // height:300px;
     width:85%;
     margin-left:auto;
     margin-right:auto;
     &__areas{
         display:flex;
         justify-content:space-between;
+        &__area{
+            flex-basis:25%;
+            @include tab{
+                flex-basis:50%;
+            }
+            @include sp  {
+                flex-basis:100%;
+            }
+        }
+        @include tab{
+            flex-wrap: wrap;
+          
+        }
     }
 }
 
@@ -148,7 +180,9 @@ body{
     
 .area-icon {
     position:relative;
-    
+    @include tab {
+        margin-bottom:20px;
+    }
   }
 
 .area-icon img{
@@ -158,6 +192,10 @@ body{
     width:180px;
     height:120px;
     border-radius: 10px;
+    @include tab {
+        margin-left:auto;
+        margin-right:auto;
+    }
 }
 
 
@@ -175,6 +213,10 @@ body{
     transition: .3s;
     -webkit-transform: scale(1);
     transform: scale(1);
+    @include tab {
+        left:45%;
+        
+    }
     
 }
 .area-icon p:hover{
@@ -188,7 +230,7 @@ body{
     width:85%;
     margin-left:auto;
     margin-right:auto;
-    padding-top:250px;
+    padding-top:50px;
     padding-bottom:100px;
 }
 
@@ -205,7 +247,11 @@ body{
     font-size:20px;
     margin-left:70px;
     margin-top:30px;
-   
+    @include tab {
+        margin-left:auto;
+        margin-right:auto;
+        text-align: center;
+    }
     a {
         display: inline-block;
         color:black;

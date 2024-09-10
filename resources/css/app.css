@@ -97,6 +97,21 @@
   -webkit-text-stroke: 1px #000;
   font-family: "Kokoro";
 }
+@media screen and (max-width: 959px) {
+  .heading__container__subtext {
+    font-size: 30px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .heading__container__subtext {
+    font-size: 25px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .heading__container__subtext span {
+    display: none;
+  }
+}
 .heading__container__maintext {
   font-size: 70px;
   font-weight: 1000;
@@ -104,9 +119,18 @@
   -webkit-text-stroke: 1px #000;
   font-family: "Kokoro";
 }
+@media screen and (max-width: 959px) {
+  .heading__container__maintext {
+    font-size: 50px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .heading__container__maintext {
+    font-size: 35px;
+  }
+}
 
 .top-wrapper {
-  height: 300px;
   width: 85%;
   margin-left: auto;
   margin-right: auto;
@@ -114,6 +138,24 @@
 .top-wrapper__areas {
   display: flex;
   justify-content: space-between;
+}
+.top-wrapper__areas__area {
+  flex-basis: 25%;
+}
+@media screen and (max-width: 959px) {
+  .top-wrapper__areas__area {
+    flex-basis: 50%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .top-wrapper__areas__area {
+    flex-basis: 100%;
+  }
+}
+@media screen and (max-width: 959px) {
+  .top-wrapper__areas {
+    flex-wrap: wrap;
+  }
 }
 
 .areas-search {
@@ -126,6 +168,11 @@
 .area-icon {
   position: relative;
 }
+@media screen and (max-width: 959px) {
+  .area-icon {
+    margin-bottom: 20px;
+  }
+}
 
 .area-icon img {
   opacity: 0.6;
@@ -134,6 +181,12 @@
   width: 180px;
   height: 120px;
   border-radius: 10px;
+}
+@media screen and (max-width: 959px) {
+  .area-icon img {
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 .area-icon p {
@@ -148,6 +201,11 @@
   transition: 0.3s;
   transform: scale(1);
 }
+@media screen and (max-width: 959px) {
+  .area-icon p {
+    left: 45%;
+  }
+}
 
 .area-icon p:hover {
   transform: scale(1.7);
@@ -161,7 +219,7 @@
   width: 85%;
   margin-left: auto;
   margin-right: auto;
-  padding-top: 250px;
+  padding-top: 50px;
   padding-bottom: 100px;
 }
 
@@ -173,6 +231,16 @@
   font-size: 20px;
   margin-left: 70px;
   margin-top: 30px;
+}
+@media screen and (max-width: 959px) {
+  .naha-detail-area,
+  .nanbu-detail-area,
+  .tyubu-detail-area,
+  .hokubu-detail-area {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
 }
 .naha-detail-area a,
 .nanbu-detail-area a,
