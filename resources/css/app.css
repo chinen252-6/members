@@ -161,85 +161,8 @@
   width: 85%;
   margin-left: auto;
   margin-right: auto;
-  padding-top: 200px;
+  padding-top: 250px;
   padding-bottom: 100px;
-}
-
-.favorite__text h4 {
-  font-size: 20px;
-  font-weight: bold;
-  padding-top: 40px;
-  margin-top: 40px;
-}
-
-.favorite__container__list ul {
-  display: flex;
-}
-.favorite__container__list a {
-  margin: 20px;
-  text-decoration: none; /* リンクの下線を削除 */
-}
-.favorite__container__list li {
-  margin: 30px;
-  flex-direction: column;
-  margin-bottom: 20px; /* 余白を追加することで各要素を分離 */
-}
-.favorite__container__list li p {
-  padding: 10px; /* テキストの余白を追加 */
-  color: #595960;
-  border: outset 1px black;
-}
-.favorite__container__list li img {
-  width: 100%; /* 画像を親要素の幅に合わせる */
-}
-
-footer {
-  background-color: black;
-  height: 200px;
-  font-size: 20px;
-  color: #E7B564;
-}
-footer .senbero-logo img {
-  height: 200px;
-  width: 200px;
-}
-
-.footer__container {
-  display: flex;
-}
-.footer__container__text {
-  display: flex;
-  flex-direction: column;
-  padding-top: 50px;
-  padding-right: 50px;
-  margin-right: 0;
-  margin-left: auto;
-}
-.footer__container__text .footer-contact {
-  padding-top: 30px;
-}
-.footer__container__text .footer-application,
-.footer__container__text .footer-contact {
-  position: relative;
-}
-.footer__container__text .footer-application::after,
-.footer__container__text .footer-contact::after {
-  position: absolute; /*親要素であるaタグを基準に位置を指定*/
-  left: 0; /*アンダーラインを各メニュー（aタグ）の左端に指定*/
-  content: ""; /*本来は、擬似要素に入るテキストなどを’’内に指定。今回はアンダーラインなので何も記載しない*/
-  width: 100%; /*アンダーラインを各aタグの幅に合わせる*/
-  height: 2px; /*アンダーラインの高さ（太さ）*/
-  background: #E7B564; /*アンダーラインの色*/
-  bottom: 20px;
-  opacity: 0;
-  visibility: hidden;
-  transition: 0.3s;
-}
-.footer__container__text .footer-application:hover::after,
-.footer__container__text .footer-contact:hover::after {
-  visibility: visible;
-  bottom: -1px;
-  opacity: 1;
 }
 
 .naha-detail-area,

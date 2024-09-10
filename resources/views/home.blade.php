@@ -18,136 +18,103 @@
     </div>
 
     <div class="top-wrapper">
-        <h4 class="areas-search">エリアから探す</h4>
-        <div class="top-wrapper__areas">
+      <h4 class="areas-search">エリアから探す</h4>
+      <div class="top-wrapper__areas">
 
-                <div class="top-wrapper__areas__area">
-                    <div class="area-icon naha">
+        <div class="top-wrapper__areas__area">
+          <div class="area-icon naha">
 
-                        <img src="https://098free.com/wp-content/uploads/2022/06/038T0A1052-i.jpg" width="150" height="75">
-                        <p class ="p-naha">那覇</p>
-                        <div class="naha-detail-area">
-                            <a href="{{ route('store.index', ['region_id' => 1]) }}">久茂地</a> <br>
-                            <a href="{{ route('store.index', ['region_id' => 2]) }}">栄町</a>  <br>
-                            <a href="{{ route('store.index', ['region_id' => 3]) }}">松尾</a>  <br>
-                            <a href="{{ route('store.index', ['region_id' => 4]) }}">壺屋</a>  <br>
-                            <a href="{{ route('store.index', ['region_id' => 5]) }}">牧志</a>  <br>
-                            <a href="{{ route('store.index', ['region_id' => 6]) }}">安里</a>  <br>
-                            <a href="{{ route('store.index', ['region_id' => 7]) }}">泉崎</a>  <br>
-                            <a href="{{ route('store.index', ['region_id' => 8]) }}">その他</a>
-
-                        </div>
-
-
-
-                    </div>
-                </div>
-
-                <div class="top-wrapper__areas__area">
-                    <div class="area-icon nanbu">
-                        <img src="https://098free.com/wp-content/uploads/2017/06/01IMG_2054.jpg" width="150" height="75">
-                        <p class="p-nanbu">南部</p>
-                        <div class="nanbu-detail-area">
-                            <a href="{{ route('store.index', ['region_id' => 8]) }}">糸満市</a> <br>
-                            <a href="{{ route('store.index', ['region_id' => 9]) }}">豊見城市</a>  <br>
-                            <a href="{{ route('store.index', ['region_id' => 10]) }}">南風原町</a>  <br>
-                            <a href="{{ route('store.index', ['region_id' => 11]) }}">与那原町</a>  <br>
-                            <a href="{{ route('store.index', ['region_id' => 12]) }}">八重瀬町</a>  <br>
-                            <a href="{{ route('store.index', ['region_id' => 13]) }}">南城市</a>  <br>
-                            <a href="{{ route('store.index', ['region_id' => 14]) }}">その他</a>  <br>
-
-
-                        </div>
-
-                    </div>
-                </div>
-
-                <div class="top-wrapper__areas__area">
-                    <div class="area-icon tyubu">
-                        <img src="https://098free.com/wp-content/uploads/2018/09/038G8A3457_i.jpg" width="150" height="75">
-                        <p class="p-tyubu">中部</p>
-                        <div class="tyubu-detail-area">
-                            <a href="{{ route('store.index', ['region_id' => 15]) }}">沖縄市</a> <br>
-                            <a href="{{ route('store.index', ['region_id' => 16]) }}">北谷町</a>  <br>
-                            <a href="{{ route('store.index', ['region_id' => 17]) }}">宜野湾市</a>  <br>
-                            <a href="{{ route('store.index', ['region_id' => 18]) }}">浦添市</a>  <br>
-                            <a href="{{ route('store.index', ['region_id' => 19]) }}">嘉手納町</a>  <br>
-                            <a href="{{ route('store.index', ['region_id' => 20]) }}">うるま市</a>  <br>
-                            <a href="{{ route('store.index', ['region_id' => 21]) }}">その他</a>  <br>
-
-
-                        </div>
-
-                    </div>
-                </div>
-
-                <div class="top-wrapper__areas__area">
-                    <div class="area-icon hokubu">
-                        <img src="https://098free.com/wp-content/uploads/2018/04/03IMG1681_i.jpg" width="160" height="90">
-                        <p class="p-hokubu">北部</p>
-                        <div class="hokubu-detail-area">
-                            <a href="{{ route('store.index', ['region_id' => 22]) }}">名護市</a> <br>
-                            <a href="{{ route('store.index', ['region_id' => 23]) }}">金武町</a>  <br>
-                            <a href="{{ route('store.index', ['region_id' => 24]) }}">宜野座村</a>  <br>
-                            <a href="{{ route('store.index', ['region_id' => 25]) }}">本部町</a>  <br>
-                            <a href="{{ route('store.index', ['region_id' => 26]) }}">今帰仁村</a>  <br>
-                            <a href="{{ route('store.index', ['region_id' => 27]) }}">国頭村</a>  <br>
-                            <a href="{{ route('store.index', ['region_id' => 28]) }}">その他</a>  <br>
-
-
-                        </div>
-
-                    </div>
-                </div>
-        </div>
-
-    </div>
-
-    <div class ="favorite">
-        <div class ="favorite__text">
-            <h4>おすすめ</h4>
-
-        </div>
-        <div class ="favorite__container">
-            <div class="favorite__container__list">
-                <ul>
-                    <li class="list-one">
-                        <a href="#">
-                            <div class="image-one">
-                                <img src="https://098free.com/wp-content/uploads/2022/06/038T0A1052-i.jpg" width="250" height="150">
-                            </div>
-                            <div class="text-one">
-                             <p>お通しで大量刺身でてきます。ほんとおすすめです。ほんとに。</p>
-                            </div>
-                        </a>
-                    </li>
-
-                    <li class="list-two">
-                        <a href="#">
-                            <div class="image-two">
-                                <img src="https://098free.com/wp-content/uploads/2022/06/038T0A1052-i.jpg" width="250" height="150" alt="">
-                            </div>
-                            <div class="text-two">
-                            <p>ハイボールがとにかく濃ゆい。おすすめです。ほんとに。</p>
-                            </div>
-                        </a>
-                    </li>
-
-                    <li class="list-three">
-                        <a href="#">
-                            <div class="image-three">
-                                <img src="https://098free.com/wp-content/uploads/2022/06/038T0A1052-i.jpg" width="250" height="150">
-                            </div>
-                            <div class="text-three">
-                            <p>どこでもたばこが吸えます。おすすめです。ほんとに。</p>
-                            </div>
-                        </a>
-                    </li>
-
-                </ul>
+            <img src="https://098free.com/wp-content/uploads/2022/06/038T0A1052-i.jpg" width="150" height="75">
+            <p class ="p-naha">那覇</p>
+            <div class="naha-detail-area">
+              <a href="{{ route('store.index', ['region_id' => 1]) }}">久茂地</a> <br>
+              <a href="{{ route('store.index', ['region_id' => 2]) }}">栄町</a>  <br>
+              <a href="{{ route('store.index', ['region_id' => 3]) }}">松尾</a>  <br>
+              <a href="{{ route('store.index', ['region_id' => 4]) }}">壺屋</a>  <br>
+              <a href="{{ route('store.index', ['region_id' => 5]) }}">牧志</a>  <br>
+              <a href="{{ route('store.index', ['region_id' => 6]) }}">安里</a>  <br>
+              <a href="{{ route('store.index', ['region_id' => 7]) }}">泉崎</a>  <br>
+              <a href="{{ route('store.index', ['region_id' => 8]) }}">その他</a>
             </div>
+          </div>
         </div>
+
+        <div class="top-wrapper__areas__area">
+          <div class="area-icon nanbu">
+          <img src="https://098free.com/wp-content/uploads/2017/06/01IMG_2054.jpg" width="150" height="75">
+          <p class="p-nanbu">南部</p>
+            <div class="nanbu-detail-area">
+              <a href="{{ route('store.index', ['region_id' => 8]) }}">糸満市</a> <br>
+              <a href="{{ route('store.index', ['region_id' => 9]) }}">豊見城市</a>  <br>
+              <a href="{{ route('store.index', ['region_id' => 10]) }}">南風原町</a>  <br>
+              <a href="{{ route('store.index', ['region_id' => 11]) }}">与那原町</a>  <br>
+              <a href="{{ route('store.index', ['region_id' => 12]) }}">八重瀬町</a>  <br>
+              <a href="{{ route('store.index', ['region_id' => 13]) }}">南城市</a>  <br>
+              <a href="{{ route('store.index', ['region_id' => 14]) }}">その他</a>  <br>
+            </div>
+          </div>
+        </div>
+
+        <div class="top-wrapper__areas__area">
+          <div class="area-icon tyubu">
+            <img src="https://098free.com/wp-content/uploads/2018/09/038G8A3457_i.jpg" width="150" height="75">
+            <p class="p-tyubu">中部</p>
+            <div class="tyubu-detail-area">
+              <a href="{{ route('store.index', ['region_id' => 15]) }}">沖縄市</a> <br>
+              <a href="{{ route('store.index', ['region_id' => 16]) }}">北谷町</a>  <br>
+              <a href="{{ route('store.index', ['region_id' => 17]) }}">宜野湾市</a>  <br>
+              <a href="{{ route('store.index', ['region_id' => 18]) }}">浦添市</a>  <br>
+              <a href="{{ route('store.index', ['region_id' => 19]) }}">嘉手納町</a>  <br>
+              <a href="{{ route('store.index', ['region_id' => 20]) }}">うるま市</a>  <br>
+              <a href="{{ route('store.index', ['region_id' => 21]) }}">その他</a>  <br>
+            </div>
+          </div>
+        </div>
+
+        <div class="top-wrapper__areas__area">
+          <div class="area-icon hokubu">
+            <img src="https://098free.com/wp-content/uploads/2018/04/03IMG1681_i.jpg" width="160" height="90">
+            <p class="p-hokubu">北部</p>
+            <div class="hokubu-detail-area">
+              <a href="{{ route('store.index', ['region_id' => 22]) }}">名護市</a> <br>
+              <a href="{{ route('store.index', ['region_id' => 23]) }}">金武町</a>  <br>
+              <a href="{{ route('store.index', ['region_id' => 24]) }}">宜野座村</a>  <br>
+              <a href="{{ route('store.index', ['region_id' => 25]) }}">本部町</a>  <br>
+              <a href="{{ route('store.index', ['region_id' => 26]) }}">今帰仁村</a>  <br>
+              <a href="{{ route('store.index', ['region_id' => 27]) }}">国頭村</a>  <br>
+              <a href="{{ route('store.index', ['region_id' => 28]) }}">その他</a>  <br>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
     </div>
+
+
+    <div class="favorite mx-auto">
+      <h2 class="text-2xl font-bold mb-4">おすすめ</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+        @foreach($recommendedStores as $recommendedStore)
+          <a href="{{ route('store.show', ['store' => $recommendedStore->store_id]) }}" class="block bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300">
+            <div class="bg-white shadow-md rounded-lg overflow-hidden">
+              @if ($recommendedStore->image)
+                <img src="{{ asset('storage/images/' . $recommendedStore->image) }}" class="w-full h-48 object-cover" alt="{{ $recommendedStore->name }}">
+              @else
+                <div class="flex items-center justify-center h-48 bg-gray-200">
+                    <p class="text-gray-500">画像未登録</p>
+                </div>
+              @endif
+                <div class="p-4">
+                    <p class="text-xl font-semibold mb-2">{{ $recommendedStore->store_name }}</h5>
+                    <p class="text-gray-700">{{ $recommendedStore->subject }}</p>
+                </div>
+            </div>
+          </a>
+        @endforeach
+      </div>
+    </div>
+
 
 
     <!-- script読み込み -->

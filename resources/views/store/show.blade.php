@@ -14,13 +14,12 @@
             <h1 class="p-6 text-3xl font-bold text-gray-800">{{ $store->store_name }}</h1>
             <hr class="my-4">
 
-
             <!-- 画像部分 -->
             @if ($store->image)
             <div class="w-full flex justify-center">
-            <div class="w-3/5 h-64 md:h-80 lg:h-96 overflow-hidden">
-                <img src="{{ asset('storage/images/' . $store->image) }}" alt="{{ $store->store_name }}" class="object-cover w-full h-full">
-            </div>
+                <div class="w-3/5 h-64 md:h-80 lg:h-96 overflow-hidden">
+                    <img src="{{ asset('storage/images/' . $store->image) }}" alt="{{ $store->store_name }}" class="object-cover w-full h-full">
+                </div>
             </div>
             @else
             <div class="w-full h-64 md:h-80 lg:h-96 flex items-center justify-center bg-gray-100">
@@ -28,9 +27,8 @@
             </div>
             @endif
 
-            <!-- 詳細情報部分 -->
+            
             <div class="p-6">
-                
 
                 <!-- Subject -->
                 <div class="mb-4">
@@ -43,53 +41,56 @@
                 </div>
 
                 <!-- Tel -->
+                 @if ($store->tel)
                 <div class="mb-4">
                     <h2 class="text-lg font-semibold text-gray-700">電話番号</h2>
                     <p class="text-gray-600">{{ $store->tel }}</p>
                 </div>
+                @else
+                <div class="mb-4">
+                    <p class="text-gray-300">電話番号が未登録です</p>
+                </div>
+                @endif
 
                 <!-- Address -->
                 <div class="mb-4">
                     <h2 class="text-lg font-semibold text-gray-700">住所</h2>
-                    <p class="text-gray-600">{{ $store->address }}</p>
+                    <p class="text-gray-600">{{ $region_name }}{{ $store->address }}</p>
                 </div>
                 <div class="text-center mt-6">
-    <a href="{{ route('review.comment', ['store_id' => $store->store_id]) }}" class="bg-gradient-to-r from-gray-700 to-gray-900 hover:from-gray-600 hover:to-gray-700 text-white font-medium py-3 px-8 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-102 hover:shadow-xl">
-        口コミを投稿する
-    </a>
-</div>
-
-
-
-                
+                    <a href="{{ route('review.comment', ['store_id' => $store->store_id]) }}" class="bg-gradient-to-r from-gray-700 to-gray-900 hover:from-gray-600 hover:to-gray-700 text-white font-medium py-3 px-8 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-102 hover:shadow-xl">
+                        口コミを投稿する
+                    </a>
+                </div>
             </div>
         </div>
     </div>
            
-     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex justify-center">
-        <div class="w-4/5 bg-white rounded-2xl shadow-lg overflow-hidden">
-            <h2 class="p-6" >口コミ一覧</h2>
-            @if($reviews->isEmpty())
-                <p class="p-6" >この店舗にはまだ口コミがありません。</p>
-            @else
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div class="bg-white rounded-2xl shadow-lg p-6">
+        <h2 class="text-2xl font-bold mb-6">口コミ一覧</h2>
+        @if($reviews->isEmpty())
+            <p class="text-gray-500">この店舗にはまだ口コミがありません。</p>
+        @else
+            <div class="grid grid-cols-1 gap-8"> <!-- カードをグリッドで配置 -->
                 @foreach($reviews as $review)
-                <div class="bg-white p-4 rounded-lg shadow-md my-4">
-                    <div class="flex items-start">
-                <!-- レビュー画像 -->
+                <div class="bg-white border border-gray-200 rounded-lg shadow-md p-6"> <!-- 口コミごとに独立したコンテナ -->
+                    <div class="flex items-start space-x-4">
+                        <!-- レビュー画像 -->
                         @if ($review->image)
-                        <div class="w-32 h-32 rounded overflow-hidden mr-4">
+                        <div class="w-32 h-32 rounded overflow-hidden">
                             <img src="{{ asset('storage/images/' . $review->image) }}" alt="{{ $review->review_title }}" class="object-cover w-full h-full">
                         </div>
                         @else
-                        <div class="w-32 h-32 bg-gray-100 flex items-center justify-center mr-4">
+                        <div class="w-32 h-32 bg-gray-100 flex items-center justify-center">
                             <p class="text-center text-gray-500">画像なし</p>
                         </div>
                         @endif
 
-                <!-- レビューテキスト -->
+                        <!-- レビューテキスト -->
                         <div class="flex-1">
                             <!-- タイトル -->
-                            <h3 class="text-md font-semibold text-gray-700">{{ $review->title }}</h3>
+                            <h3 class="text-lg font-semibold text-gray-700">{{ $review->title }}</h3>
 
                             <!-- ボディ -->
                             <p class="text-gray-600 mt-2">{{ $review->body }}</p>
@@ -111,10 +112,13 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> <!-- 各口コミを1つのコンテナとして囲む -->
                 @endforeach
-            @endif
-        </div>
-     </div>
+            </div>
+        @endif
+    </div>
+</div>
+
+
         
 </x-app-layout>
