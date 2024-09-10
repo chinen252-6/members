@@ -10,11 +10,11 @@
 
     {{-- 投稿一覧表示用のコード --}}
     
-        <div class="heading">
-        <div class="heading__container">
-          <h4 class="heading__container__subtext">みんなでつくる沖縄せんべろサイト</h4>
-          <h2 class="heading__container__maintext">せんべろ探検隊</h2>
-        </div>
+    <div class="heading">
+      <div class="heading__container">
+        <h4 class="heading__container__subtext"><span>みんなでつくる</span>沖縄せんべろサイト</h4>
+        <h2 class="heading__container__maintext">せんべろ探検隊</h2>
+      </div>
     </div>
 
     <div class="top-wrapper">
