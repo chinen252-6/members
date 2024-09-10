@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            口コミ入力
+        口コミ入力
         </h2>
         <x-validation-errors class="mb-4" :errors="$errors" :requiredFields="['件名', '本文', '評価']"/>
         

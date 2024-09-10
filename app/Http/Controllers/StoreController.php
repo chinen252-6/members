@@ -121,4 +121,15 @@ class StoreController extends Controller
     {
         //
     }
+
+    public function home()
+    {
+        // 口コミの多い上位3つの店舗を取得
+        $recommendedStores = Store::withCount('reviews')
+            ->orderBy('reviews_count', 'desc')
+            ->take(3)
+            ->get();
+
+        return view('home', compact('recommendedStores'));
+    }
 }

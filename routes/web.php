@@ -46,12 +46,15 @@ Route::controller(ContactController::class)->group(function(){
 
 Route::resource('store', StoreController::class);
 
-Route::get('/home', function () {
-    return view('home');
-})->name('home');
+Route::get('/home', [StoreController::class, 'home'])->name('home');
 
 
 
 // Route::resource('review',ReviewController::class);
 Route::get('review/comment/{store_id}', [ReviewController::class, 'create'])->name('review.comment');
 Route::post('review/store', [ReviewController::class, 'store'])->name('review.store');;
+
+
+
+
+
