@@ -13,27 +13,34 @@ class StoreController extends Controller
      * Display a listing of the resource.
      */
     public function index(Request $request)
-{
-    $region_id = $request->input('region_id');
-    $region_name = null; // 地域名を格納する変数を初期化
-
-    if ($region_id) {
-        $stores = Store::where('region_id', $region_id)->get();
-
-        // region_id に対応する地域名を取得
-        $region = Region::find($region_id);
-        if ($region) {
-            $region_name = $region->name; // 地域名を取得
-        }
-    } else {
-        $stores = Store::all();
-    }
-
-    // 取得した店舗情報と地域名をビューに渡す
-    return view('store.index', compact('stores', 'region_name'));
-}
+    {
+        $region_ids = $request->input('region_id'); // 複数のregion_idを取得可能に
+        $region_name = null;
     
-
+        if ($region_ids) {
+            // region_idsが配列ならwhereInを使う
+            if (is_array($region_ids)) {
+                $stores = Store::whereIn('region_id', $region_ids)->get();
+    
+                // 対応する地域名を取得（複数の場合は結合）
+                $regions = Region::whereIn('id', $region_ids)->get();
+                $region_name = $regions->pluck('name')->implode(', '); // 地域名をカンマ区切りで取得
+            } else {
+                // region_idが単数の場合
+                $stores = Store::where('region_id', $region_ids)->get();
+    
+                $region = Region::find($region_ids);
+                if ($region) {
+                    $region_name = $region->name; // 地域名を取得
+                }
+            }
+        } else {
+            // 全ての店舗を取得
+            $stores = Store::all();
+        }
+    
+        return view('store.index', compact('stores', 'region_name'));
+    }    
     /**
      * Show the form for creating a new resource.
      */
