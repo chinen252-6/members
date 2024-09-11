@@ -27,14 +27,15 @@
             <img src="https://098free.com/wp-content/uploads/2022/06/038T0A1052-i.jpg" width="150" height="75">
             <p class ="p-naha">那覇</p>
             <div class="naha-detail-area">
-              <a href="{{ route('store.index', ['region_id' => 1]) }}">久茂地</a> <br>
+            <a href="{{ route('store.index', ['region_id' => [1, 2, 3, 4, 5, 6, 7, 34]]) }}">那覇エリア一覧</a>
+            <a href="{{ route('store.index', ['region_id' => 1]) }}">久茂地</a> <br>
               <a href="{{ route('store.index', ['region_id' => 2]) }}">栄町</a>  <br>
               <a href="{{ route('store.index', ['region_id' => 3]) }}">松尾</a>  <br>
               <a href="{{ route('store.index', ['region_id' => 4]) }}">壺屋</a>  <br>
               <a href="{{ route('store.index', ['region_id' => 5]) }}">牧志</a>  <br>
-              <a href="{{ route('store.index', ['region_id' => 6]) }}">安里</a>  <br>
-              <a href="{{ route('store.index', ['region_id' => 7]) }}">泉崎</a>  <br>
-              <a href="{{ route('store.index', ['region_id' => 8]) }}">その他</a>
+              <a href="{{ route('store.index', ['region_id' => 34]) }}">安里</a>  <br>
+              <a href="{{ route('store.index', ['region_id' => 6]) }}">泉崎</a>  <br>
+              <a href="{{ route('store.index', ['region_id' => 7]) }}">その他</a>
             </div>
           </div>
         </div>
@@ -44,6 +45,7 @@
           <img src="https://098free.com/wp-content/uploads/2017/06/01IMG_2054.jpg" width="150" height="75">
           <p class="p-nanbu">南部</p>
             <div class="nanbu-detail-area">
+              <a href="{{ route('store.index', ['region_id' => [8,9,10,11,12,13,14,]]) }}">南部エリア一覧</a> <br>
               <a href="{{ route('store.index', ['region_id' => 8]) }}">糸満市</a> <br>
               <a href="{{ route('store.index', ['region_id' => 9]) }}">豊見城市</a>  <br>
               <a href="{{ route('store.index', ['region_id' => 10]) }}">南風原町</a>  <br>
@@ -60,6 +62,7 @@
             <img src="https://098free.com/wp-content/uploads/2018/09/038G8A3457_i.jpg" width="150" height="75">
             <p class="p-tyubu">中部</p>
             <div class="tyubu-detail-area">
+              <a href="{{ route('store.index', ['region_id' => [15,16,17,18,19,20,21]]) }}">中部エリア一覧</a> <br>
               <a href="{{ route('store.index', ['region_id' => 15]) }}">沖縄市</a> <br>
               <a href="{{ route('store.index', ['region_id' => 16]) }}">北谷町</a>  <br>
               <a href="{{ route('store.index', ['region_id' => 17]) }}">宜野湾市</a>  <br>
@@ -76,6 +79,7 @@
             <img src="https://098free.com/wp-content/uploads/2018/04/03IMG1681_i.jpg" width="160" height="90">
             <p class="p-hokubu">北部</p>
             <div class="hokubu-detail-area">
+              <a href="{{ route('store.index', ['region_id' => [22,23,24,25,26,27,28]]) }}">北部エリア一覧</a> <br>
               <a href="{{ route('store.index', ['region_id' => 22]) }}">名護市</a> <br>
               <a href="{{ route('store.index', ['region_id' => 23]) }}">金武町</a>  <br>
               <a href="{{ route('store.index', ['region_id' => 24]) }}">宜野座村</a>  <br>

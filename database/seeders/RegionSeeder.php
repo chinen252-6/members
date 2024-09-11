@@ -14,6 +14,9 @@ class RegionSeeder extends Seeder
      */
     public function run()
     {
+        // テーブルのデータをクリア(nameを追加したためクリアした)
+        DB::table('regions')->truncate();
+
         DB::table('regions')->insert([
             ['name' => '久茂地'],
             ['name' => '栄町'],
