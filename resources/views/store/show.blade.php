@@ -61,6 +61,16 @@
                     <a href="{{ route('review.comment', ['store_id' => $store->store_id]) }}" class="bg-gradient-to-r from-gray-700 to-gray-900 hover:from-gray-600 hover:to-gray-700 text-white font-medium py-3 px-8 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-102 hover:shadow-xl">
                         口コミを投稿する
                     </a>
+                    @if(Auth::guard('admin')->check())
+    <a href="{{ route('store.edit', $store->store_id) }}" class="btn btn-primary">編集</a>
+
+    <form action="{{ route('store.destroy', $store->store_id) }}" method="POST" style="display:inline;">
+        @csrf
+        @method('DELETE')
+        <button type="submit" class="btn btn-danger" onclick="return confirm('本当に削除しますか？')">削除</button>
+    </form>
+@endif
+
                 </div>
             </div>
         </div>
