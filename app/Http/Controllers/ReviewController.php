@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Review;
 use Illuminate\Http\Request;
+use App\Models\Store;
+use App\Models\Region;
 
 class ReviewController extends Controller
 {
@@ -55,9 +57,17 @@ class ReviewController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Review $review)
+    public function show($id,Store $store)
     {
-        //
+        $review = Review::findOrFail($id);
+        
+        $region = Region::find($store->region_id);
+        $region_name = $region ? $region->name : '地域未設定';
+    
+        $reviews = $store->reviews; // リレーションが設定されていることを前提
+
+        
+        return view('review.show', compact('review','store', 'region_name', 'reviews'));
     }
 
     /**

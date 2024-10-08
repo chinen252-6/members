@@ -15,7 +15,7 @@
                     <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
                         HOME
                     </x-nav-link>
-                    <x-nav-link :href="route('post.create')" :active="request()->routeIs('post.create')">
+                    <!-- <x-nav-link :href="route('post.create')" :active="request()->routeIs('post.create')">
                         新規作成
                     </x-nav-link>
                     <x-nav-link :href="route('post.mypost')" :active="request()->routeIs('post.mypost')">
@@ -23,7 +23,7 @@
                     </x-nav-link>
                     <x-nav-link :href="route('post.mycomment')" :active="request()->routeIs('post.mycomment')">
                         コメントした投稿
-                    </x-nav-link>
+                    </x-nav-link> -->
                     <x-nav-link :href="route('store.create')" :active="request()->routeIs('store.create')">
                         お店登録
                     </x-nav-link>
@@ -34,7 +34,7 @@
             </div>
 
             <!-- Settings Dropdown -->
-            <div class="hidden sm:flex sm:items-center sm:ms-6">
+            <!-- <div class="hidden sm:flex sm:items-center sm:ms-6">
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
                         <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
@@ -51,10 +51,10 @@
                     <x-slot name="content">
                         <x-dropdown-link :href="route('profile.edit')">
                             {{ __('Profile') }}
-                        </x-dropdown-link>
+                        </x-dropdown-link> -->
 
                         <!-- Authentication -->
-                        <form method="POST" action="{{ route('logout') }}">
+                        <!-- <form method="POST" action="{{ route('logout') }}">
                             @csrf
 
                             <x-dropdown-link :href="route('logout')"
@@ -65,7 +65,7 @@
                         </form>
                     </x-slot>
                 </x-dropdown>
-            </div>
+            </div> -->
 
             <!-- Hamburger -->
             <div class="-me-2 flex items-center sm:hidden">
@@ -85,7 +85,7 @@
             <x-responsive-nav-link :href="route('post.index')" :active="request()->routeIs('post.index')">
                 HOME
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('post.create')" :active="request()->routeIs('post.create')">
+            <!-- <x-responsive-nav-link :href="route('post.create')" :active="request()->routeIs('post.create')">
                 新規作成
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('post.mypost')" :active="request()->routeIs('post.mypost')">
@@ -93,7 +93,7 @@
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('post.mycomment')" :active="request()->routeIs('post.mycomment')">
                 コメントした投稿
-            </x-responsive-nav-link>
+            </x-responsive-nav-link> -->
             <x-responsive-nav-link :href="route('store.create')" :active="request()->routeIs('post.mycomment')">
                 お店登録
             </x-responsive-nav-link>
@@ -104,7 +104,7 @@
         </div>
 
         <!-- Responsive Settings Options -->
-        <div class="pt-4 pb-1 border-t border-gray-200">
+        <!-- <div class="pt-4 pb-1 border-t border-gray-200">
             <div class="px-4">
                 <div class="font-medium text-base text-gray-800">@if(Auth::check()) {{ Auth::user()->name }} @endif</div>
                 <div class="font-medium text-sm text-gray-500">@if(Auth::check()) {{ Auth::user()->email }} @endif</div>
@@ -113,10 +113,10 @@
             <div class="mt-3 space-y-1">
                 <x-responsive-nav-link :href="route('profile.edit')">
                     {{ __('Profile') }}
-                </x-responsive-nav-link>
+                </x-responsive-nav-link> -->
 
                 <!-- Authentication -->
-                <form method="POST" action="{{ route('logout') }}">
+                <!-- <form method="POST" action="{{ route('logout') }}">
                     @csrf
 
                     <x-responsive-nav-link :href="route('logout')"
@@ -125,7 +125,7 @@
                         {{ __('Log Out') }}
                     </x-responsive-nav-link>
                 </form>
-            </div>
-        </div>
+            </div> 
+        <!-- </div> -->
     </div>
 </nav>
