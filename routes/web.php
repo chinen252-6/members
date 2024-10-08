@@ -16,9 +16,9 @@ Route::post('post/comment/store', [CommentController::class, 'store'])->name('co
 
 
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('top');
+// Route::get('/', function () {
+//     return view('welcome');
+// })->name('top');
 
 
 Route::get('/dashboard', [PostController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
@@ -46,22 +46,17 @@ Route::controller(ContactController::class)->group(function(){
 
 
 Route::resource('store', StoreController::class);
-
-Route::get('/home', [StoreController::class, 'home'])->name('home');
-
+Route::get('/store/{store}/edit', [StoreController::class, 'edit'])->name('store.edit');
 
 
-// Route::resource('review',ReviewController::class);
+Route::get('/', [StoreController::class, 'home'])->name('home');
+
+
+
+Route::resource('review',ReviewController::class);
 Route::get('review/comment/{store_id}', [ReviewController::class, 'create'])->name('review.comment');
 Route::post('review/store', [ReviewController::class, 'store'])->name('review.store');;
 
-// 管理者画面ーーーーーーーーーーーーーーーーーーーーーーーーーー
-Route::middleware(['auth.admin'])->prefix('admin')->group(function () {
-    Route::get('/', 'AdminController@index')->name('admin.dashboard');
-    Route::resource('contacts', 'Admin\ContactController')->only(['index', 'edit', 'update', 'destroy']);
-    Route::resource('stores', 'Admin\StoreController')->only(['index', 'show', 'edit', 'update', 'destroy']); 
-    Route::resource('reviews', 'Admin\ReviewController')->only(['index', 'edit', 'update', 'destroy']);
-});
 
 
 
@@ -69,34 +64,25 @@ Route::middleware(['auth.admin'])->prefix('admin')->group(function () {
 
 
 
-// Route::get('/admin/login', [AdminController::class, 'showLoginForm'])->name('admin.login');
-// Route::post('/admin/login', [AdminController::class, 'login'])->name('admin.login.submit');
-// Route::post('/admin/logout', [AdminController::class, 'login'])->name('admin.logout');
 
 
 
-
-Route::get('/admin/login', [AdminController::class, 'showLoginForm'])->name('admin.login');
-Route::post('/admin/login', [AdminController::class, 'login'])->name('admin.login.submit');
-Route::post('/admin/logout', [AdminController::class, 'logout'])->name('admin.logout');
-
-// 管理者用ルート
+// 管理者画面ルート
 Route::middleware(['auth.admin'])->prefix('admin')->group(function () {
     Route::get('/', [AdminController::class, 'index'])->name('admin.dashboard');
-    // 他の管理者ルートをここに追加
+    
+    // 正しい名前空間でコントローラーを指定
+    Route::resource('contacts', ContactController::class)->only(['index', 'edit', 'update', 'destroy']);
+    Route::resource('stores', StoreController::class)->only(['index', 'show', 'edit', 'update', 'destroy']);
+    Route::resource('reviews', ReviewController::class)->only(['index', 'edit', 'update', 'destroy']);
 });
 
-// 管理者ログイン時のみ
-Route::middleware(['auth:admin'])->group(function () {
-    Route::get('store/{id}/edit', [StoreController::class, 'edit'])->name('store.edit');
-    Route::put('store/{id}', [StoreController::class, 'update'])->name('store.update');
-    Route::delete('store/{id}', [StoreController::class, 'destroy'])->name('store.destroy');
-    
-    Route::get('review/{id}/edit', [ReviewController::class, 'edit'])->name('review.edit');
-    Route::put('review/{id}', [ReviewController::class, 'update'])->name('review.update');
-    Route::delete('review/{id}', [ReviewController::class, 'destroy'])->name('review.destroy');
 
-    Route::get('contact/{id}/edit', [ContactController::class, 'edit'])->name('contact.edit');
-    Route::put('contact/{id}', [ContactController::class, 'update'])->name('contact.update');
-    Route::delete('contact/{id}', [ContactController::class, 'destroy'])->name('contact.destroy');
+
+
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::get('/admin', [AdminController::class, 'index'])->name('admin.dashboard');
+    Route::resource('admin/stores', StoreController::class);
+    Route::resource('admin/reviews', ReviewController::class);
+    Route::resource('admin/contacts', ContactController::class);
 });

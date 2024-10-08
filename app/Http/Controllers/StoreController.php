@@ -110,7 +110,7 @@ class StoreController extends Controller
      */
     public function edit(Store $store)
     {
-        //
+        return view('store.edit', compact('store'));
     }
 
     /**
@@ -118,15 +118,42 @@ class StoreController extends Controller
      */
     public function update(Request $request, Store $store)
     {
-        //
+        $inputs = $request->validate([
+            'store_name' => 'required|max:20',
+            'subject' => 'required|max:50',
+            'introduction' => 'required|max:1000',
+            'tel' => 'nullable|max:15',
+            'address' => 'required|max:50',
+            'address_detail' => 'nullable|max:50',
+            'region_id' => 'required|exists:regions,id',
+            'image' => 'nullable|image|max:2048'
+        ]);
+
+        $store->update($inputs);
+        
+        // 画像処理（任意）
+    if ($request->hasFile('image')) {
+        $original = $request->file('image')->getClientOriginalName();
+        $name = date('Ymd_His') . '_' . $original;
+        $request->file('image')->move('storage/images', $name);
+        $store->image = $name;
     }
+
+    $store->save(); // 変更を保存
+
+    return redirect()->route('store.edit', ['store' => $store->store_id])->with('message', '店舗情報を更新しました');
+
+}
+
 
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(Store $store)
     {
-        //
+        $store->delete();
+
+        return redirect()->route('store.edit', $store->id)->with('message', '店舗情報を更新しました');
     }
 
     public function home()

@@ -19,7 +19,7 @@
         {{-- ここから貼り付けます --}}
             <div class="w-full container mx-auto p-1">
                 <div class="w-full flex items-center justify-between">
-                <a href="{{route('top')}}"><img src="{{asset('logo/logo.svg')}}"   style="max-height:150px;"></a>
+                <a href="{{route('home')}}"><img src="{{asset('logo/logo.svg')}}"   style="max-height:150px;"></a>
                     <div class="flex w-1/2 justify-end content-center">
                     
                         {{-- ログイン・登録部分 --}}
