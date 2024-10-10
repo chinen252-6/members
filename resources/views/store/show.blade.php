@@ -3,8 +3,8 @@
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
         {{ $region_name }}/{{ $store->store_name }}の詳細
         </h2>
-        <x-message :message="session('message')" />
-    </x-slot>
+        <x-validation-errors class="mb-4" :errors="$errors" />
+        <x-message :message="session('message')" />    </x-slot>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex justify-center">
         <!-- メインコンテンツ -->
@@ -63,9 +63,10 @@
                     </a>
                 </div>
                 
-    
+                @auth
                 <a href="{{ route('store.edit', $store->store_id) }}" class="bg-gradient-to-r from-red-700 to-red-900 hover:from-red-600 hover:to-red-700 text-white font-medium py-3 px-8 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-102 hover:shadow-xl">
                     編集</a>
+                @endauth
             </div>
         </div>
     </div>

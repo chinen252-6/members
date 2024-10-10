@@ -8,9 +8,12 @@
         <!-- プライバシーポリシーと利用規約 -->
         <div class="ml-auto mr-0 pr-5">
             <div class="mt-4  flex flex-col ml-auto mr-0">
-                <a href="{{ route('home') }}" class="text-gray-400 hover:text-white mx-2">HOME</a>
-                <a href="{{ route('store.create') }}"  class="text-gray-400 hover:text-white mx-2">お店登録</a>
-                <a href="{{ route('contact.create') }}" class="text-gray-400 hover:text-white mx-2">お問い合わせ</a>
+                <a href="{{ route('home') }}" class="text-gray-400 hover:text-white mx-2 pb-1">HOME</a>
+                <a href="{{ route('store.create') }}"  class="text-gray-400 hover:text-white mx-2 pb-1">お店登録</a>
+                <a href="{{ route('contact.create') }}" class="text-gray-400 hover:text-white mx-2 pb-1">お問い合わせ</a>
+                @auth
+                <a href="{{ route('contacts.index') }}" class="text-gray-400 hover:text-white mx-2 pb-1">問い合わせ一覧</a>
+                @endauth
             </div>
         </div>
 

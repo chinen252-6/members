@@ -149,13 +149,7 @@ class StoreController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Store $store)
-    {
-        $store->delete();
-
-        return redirect()->route('store.edit', $store->id)->with('message', '店舗情報を更新しました');
-    }
-
+    
     public function home()
     {
         // 口コミの多い上位3つの店舗を取得
@@ -166,4 +160,11 @@ class StoreController extends Controller
 
         return view('home', compact('recommendedStores'));
     }
+
+    public function destroy(Store $store)
+    {
+        $store->delete();
+
+        return redirect()->route('store.create')->with('message', 'お店を削除しました');    }
+
 }
