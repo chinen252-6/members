@@ -20,19 +20,19 @@
                 <div class="md:flex items-center mt-8">
                     <div class="w-full flex flex-col">
                         <label for="title" class="font-semibold leading-none mt-4">件名</label>
-                        <input type="text" name="title" class="w-auto py-2 placeholder-gray-300 border border-gray-300 rounded-md" id="title" value="{{old('title')}}" placeholder="Enter Title">
+                        <input type="text" name="title" class="w-auto py-2 placeholder-gray-300 border border-gray-300 rounded-md" id="title" value="{{old('title')}}" placeholder="件名を入力してください">
                     </div>
                 </div>
 
                 <div class="w-full flex flex-col">
                     <label for="body" class="font-semibold leading-none mt-4">本文</label>
-                    <textarea name="body" class="w-auto py-2 border border-gray-300 rounded-md" id="body" cols="30" rows="10">{{old('body')}}</textarea>
+                    <textarea name="body" class="w-auto py-2 border border-gray-300 rounded-md placeholder-gray-300" id="body" cols="30" rows="10" placeholder="本文を入力してください">{{old('body')}}</textarea>
                 </div>
 
                 <div class="md:flex items-center">
                     <div class="w-full flex flex-col">
                         <label for="email" class="font-semibold leading-none mt-4">メールアドレス</label>
-                        <input type="text" name="email" class="w-auto py-2 placeholder-gray-300 border border-gray-300 rounded-md" id="email" value="{{old('email')}}" placeholder="Enter Email">
+                        <input type="text" name="email" class="w-auto py-2 placeholder-gray-300 border border-gray-300 rounded-md" id="email" value="{{old('email')}}" placeholder="メールアドレスを入力してください">
                     </div>
                 </div>
                 <x-primary-button class="mt-4">
@@ -43,3 +43,5 @@
         </div>
     </div>
 </x-app-layout>
+
+

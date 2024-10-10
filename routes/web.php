@@ -38,16 +38,27 @@ require __DIR__.'/auth.php';
 
 
 Route::controller(ContactController::class)->group(function(){
-    Route::get('contact/create', 'create')->name('contact.create');
-    Route::post('contact/store', 'store')->name('contact.store');
+    Route::get('contact/create', [ContactController::class, 'create'])->name('contact.create');
+    Route::post('contact/store', [ContactController::class, 'store'])->name('contact.store');
+});
+
+Route::controller(ContactController::class)->middleware('auth')->group(function(){
+    Route::get('contacts', [ContactController::class, 'index'])->name('contacts.index');
+    Route::get('contacts/{id}', [ContactController::class, 'show'])->name('contacts.show');
+    Route::get('contacts/{id}/edit', [ContactController::class, 'edit'])->name('contacts.edit');
+    Route::put('contacts/{id}', [ContactController::class, 'update'])->name('contacts.update');
+    Route::delete('contacts/{id}', [ContactController::class, 'destroy'])->name('contacts.destroy');
 });
 
 
 
 
 Route::resource('store', StoreController::class);
-Route::get('/store/{store}/edit', [StoreController::class, 'edit'])->name('store.edit');
-
+Route::middleware('auth')->group(function () {
+    Route::get('/store/{store}/edit', [StoreController::class, 'edit'])->name('store.edit');
+    Route::put('/store/{store}', [StoreController::class, 'update'])->name('store.update');
+    Route::delete('/store/{store}', [StoreController::class, 'destroy'])->name('store.destroy');
+});
 
 Route::get('/', [StoreController::class, 'home'])->name('home');
 
@@ -67,22 +78,20 @@ Route::post('review/store', [ReviewController::class, 'store'])->name('review.st
 
 
 
-// 管理者画面ルート
-Route::middleware(['auth.admin'])->prefix('admin')->group(function () {
-    Route::get('/', [AdminController::class, 'index'])->name('admin.dashboard');
+// // 管理者画面ルート
+// Route::middleware(['auth.admin'])->prefix('admin')->group(function () {
+//     Route::get('/', [AdminController::class, 'index'])->name('admin.dashboard');
     
-    // 正しい名前空間でコントローラーを指定
-    Route::resource('contacts', ContactController::class)->only(['index', 'edit', 'update', 'destroy']);
-    Route::resource('stores', StoreController::class)->only(['index', 'show', 'edit', 'update', 'destroy']);
-    Route::resource('reviews', ReviewController::class)->only(['index', 'edit', 'update', 'destroy']);
-});
+//     // 正しい名前空間でコントローラーを指定
+//     Route::resource('contacts', ContactController::class)->only(['index', 'edit', 'update', 'destroy']);
+//     Route::resource('stores', StoreController::class)->only(['index', 'show', 'edit', 'update', 'destroy']);
+//     Route::resource('reviews', ReviewController::class)->only(['index', 'edit', 'update', 'destroy']);
+// });
 
 
 
 
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin', [AdminController::class, 'index'])->name('admin.dashboard');
-    Route::resource('admin/stores', StoreController::class);
-    Route::resource('admin/reviews', ReviewController::class);
-    Route::resource('admin/contacts', ContactController::class);
+    
 });
