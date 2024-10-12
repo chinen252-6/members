@@ -128,12 +128,16 @@
                     });
                 </script>
 
-                <div class="w-full flex flex-col">
-                    <label for="image" class="font-semibold leading-none mt-4">画像 （1MBまで）</label>
-                    <div>
-                        <input id="image" type="file" name="image">
-                    </div>
-                </div>
+                <!-- 画像の表示とアップロード -->
+<div class="w-full flex flex-col">
+    <label for="image" class="font-semibold leading-none mt-4">画像 （1MBまで）</label>
+    <div>
+        @if ($store->image)
+            <img src="{{ asset('storage/images/' . $store->image) }}" alt="{{ $store->store_name }}" class="mb-4 w-32">
+        @endif
+        <input id="image" type="file" name="image">
+    </div>
+</div>
 
                 <x-primary-button class="mt-4">
                     更新する

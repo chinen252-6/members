@@ -15,15 +15,7 @@
                     <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
                         HOME
                     </x-nav-link>
-                    <!-- <x-nav-link :href="route('post.create')" :active="request()->routeIs('post.create')">
-                        新規作成
-                    </x-nav-link>
-                    <x-nav-link :href="route('post.mypost')" :active="request()->routeIs('post.mypost')">
-                        自分の投稿
-                    </x-nav-link>
-                    <x-nav-link :href="route('post.mycomment')" :active="request()->routeIs('post.mycomment')">
-                        コメントした投稿
-                    </x-nav-link> -->
+                    
                     <x-nav-link :href="route('store.create')" :active="request()->routeIs('store.create')">
                         お店登録
                     </x-nav-link>
@@ -90,15 +82,8 @@
             <x-responsive-nav-link :href="route('post.index')" :active="request()->routeIs('post.index')">
                 HOME
             </x-responsive-nav-link>
-            <!-- <x-responsive-nav-link :href="route('post.create')" :active="request()->routeIs('post.create')">
-                新規作成
-            </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('post.mypost')" :active="request()->routeIs('post.mypost')">
-                自分の投稿
-            </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('post.mycomment')" :active="request()->routeIs('post.mycomment')">
-                コメントした投稿
-            </x-responsive-nav-link> -->
+           
+         
             <x-responsive-nav-link :href="route('store.create')" :active="request()->routeIs('post.mycomment')">
                 お店登録
             </x-responsive-nav-link>

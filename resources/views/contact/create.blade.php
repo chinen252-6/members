@@ -3,8 +3,8 @@
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
         お問い合わせ
         </h2>
-        <x-validation-errors class="mb-4" :errors="$errors" />
-        
+        <x-validation-errors class="mb-4" :errors="$errors" :requiredFields="['件名', '本文', 'メールアドレス']" /> 
+
         <x-message :message="session('message')" />
 
         

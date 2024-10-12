@@ -14,20 +14,20 @@
                 <div class="md:flex items-center mt-8">
                     <div class="w-full flex flex-col">
                         <label for="store_name" class="font-semibold leading-none mt-4">店名</label>
-                        <input type="text" name="store_name" class="w-auto py-2 placeholder-gray-300 border border-gray-300 rounded-md" id="store_name" value="{{old('store_name')}}" placeholder="20文字以内で入力してください">
+                        <input type="text" name="store_name" class="w-auto py-2 placeholder-gray-300 border border-gray-300 rounded-md" id="store_name" value="{{old('store_name')}}" placeholder="※必須　　20文字以内で入力してください">
                     </div>
                 </div>
 
                 <div class="md:flex items-center mt-8">
                     <div class="w-full flex flex-col">
                         <label for="subject" class="font-semibold leading-none mt-4">どんな店</label>
-                        <input type="text" name="subject" class="w-auto py-2 placeholder-gray-300 border border-gray-300 rounded-md" id="subject" value="{{old('subject')}}" placeholder="50文字以内で入力してください">
+                        <input type="text" name="subject" class="w-auto py-2 placeholder-gray-300 border border-gray-300 rounded-md" id="subject" value="{{old('subject')}}" placeholder="※必須　50文字以内で入力してください">
                     </div>
                 </div>
 
                 <div class="w-full flex flex-col">
                     <label for="introduction" class="font-semibold leading-none mt-4">詳しく紹介</label>
-                    <textarea name="introduction" class="w-auto py-2 border border-gray-300 rounded-md" id="introduction" cols="30" rows="10">{{old('introduction')}}</textarea>
+                    <textarea name="introduction" class="w-auto py-2 border border-gray-300 rounded-md placeholder-gray-300" id="introduction" cols="30" rows="10"  placeholder="※必須　1000文字以内で入力してください" >{{old('introduction')}}</textarea>
                 </div>
                 
                 <div class="md:flex items-center mt-8">
@@ -38,7 +38,7 @@
                 </div>
                     
                 <div class="md:flex items-center mt-8">
-                    <!-- 親地域の選択 -->
+                    
                     <div class="w-1/3 flex flex-col">
                         <label for="parent-region" class="font-semibold leading-none mt-4">地域</label>
                         <!-- IDをクラスに変更 -->
