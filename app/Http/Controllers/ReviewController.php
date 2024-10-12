@@ -6,6 +6,7 @@ use App\Models\Review;
 use Illuminate\Http\Request;
 use App\Models\Store;
 use App\Models\Region;
+use Illuminate\Support\Facades\Storage;
 
 class ReviewController extends Controller
 {
@@ -64,7 +65,7 @@ class ReviewController extends Controller
         $region = Region::find($store->region_id);
         $region_name = $region ? $region->name : '地域未設定';
     
-        $reviews = $store->reviews; // リレーションが設定されていることを前提
+        $reviews = $store->reviews; 
 
         
         return view('review.show', compact('review','store', 'region_name', 'reviews'));
@@ -73,9 +74,11 @@ class ReviewController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Review $review)
+    public function edit($id)
     {
-        //
+        $review = Review::findOrFail($id);
+
+        return view('review.edit', compact('review'));
     }
 
     /**
@@ -83,14 +86,36 @@ class ReviewController extends Controller
      */
     public function update(Request $request, Review $review)
     {
-        //
-    }
+        $inputs = $request->validate([
+            'title' => 'required|max:255',
+            'body' => 'required|max:1000',
+            'image' => 'nullable|image|max:1024',
+            'rating' => 'required|integer|between:1,5',
+        ]);
 
+        $review->update($inputs);
+
+        if ($request->hasFile('image')) {
+            $original = $request->file('image')->getClientOriginalName();
+            $name = date('Ymd_His') . '_' . $original;
+            $request->file('image')->move('storage/images', $name);
+            $review->image = $name;
+        }
+
+        $review->save();
+
+        return redirect()->route('review.show', ['review' => $review->id])
+            ->with('message', '口コミ情報を更新しました');
+    }
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(Review $review)
     {
-        //
+        $store_id = $review->store_id;
+        $review->delete();
+
+        return redirect()->route('store.show', ['store' => $store_id])
+            ->with('message', '口コミを削除しました');
     }
 }

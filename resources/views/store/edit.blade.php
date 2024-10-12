@@ -15,26 +15,26 @@
                 <div class="md:flex items-center mt-8">
                     <div class="w-full flex flex-col">
                         <label for="store_name" class="font-semibold leading-none mt-4">店名</label>
-                        <input type="text" name="store_name" class="w-auto py-2 placeholder-gray-300 border border-gray-300 rounded-md" id="store_name" value="{{old('store_name')}}" placeholder="{{old('store_name', $store->store_name)}}">
+                        <input type="text" name="store_name" class="w-auto py-2 placeholder-gray-300 border border-gray-300 rounded-md" id="store_name" value="{{old('store_name',$store->store_name)}}" placeholder="{{old('store_name', $store->store_name)}}">
                     </div>
                 </div>
 
                 <div class="md:flex items-center mt-8">
                     <div class="w-full flex flex-col">
                         <label for="subject" class="font-semibold leading-none mt-4">どんな店</label>
-                        <input type="text" name="subject" class="w-auto py-2 placeholder-gray-300 border border-gray-300 rounded-md" id="subject" value="{{old('subject')}}" placeholder="{{old('subject', $store->subject)}}">
+                        <input type="text" name="subject" class="w-auto py-2 placeholder-gray-300 border border-gray-300 rounded-md" id="subject" value="{{old('subject',$store->subject)}}" placeholder="{{old('subject', $store->subject)}}">
                     </div>
                 </div>
 
                 <div class="w-full flex flex-col">
                     <label for="introduction" class="font-semibold leading-none mt-4">詳しく紹介</label>
-                    <textarea name="introduction" class="w-auto py-2 border border-gray-300 rounded-md placeholder-gray-300" id="introduction" cols="30" rows="10" placeholder="{{old('introduction', $store->introduction)}}">{{old('introduction')}}</textarea>
+                    <textarea name="introduction" class="w-auto py-2 border border-gray-300 rounded-md placeholder-gray-300" id="introduction" cols="30" rows="10" placeholder="{{old('introduction', $store->introduction)}}">{{old('introduction',$store->introduction)}}</textarea>
                 </div>
                 
                 <div class="md:flex items-center mt-8">
                     <div class="w-1/2 flex flex-col">
                         <label for="tel" class="font-semibold leading-none mt-4">電話番号</label>
-                        <input type="text" name="tel" class="w-auto py-2 placeholder-gray-300 border border-gray-300 rounded-md" id="tel" value="{{old('tel')}}" placeholder="{{old('tel', $store->tel)}}">
+                        <input type="text" name="tel" class="w-auto py-2 placeholder-gray-300 border border-gray-300 rounded-md" id="tel" value="{{old('tel',$store->tel)}}" placeholder="{{old('tel', $store->tel)}}">
                     </div>
                 </div>
                     
@@ -64,7 +64,7 @@
                     <!-- 住所詳細の入力 -->
                     <div class="w-1/3 flex flex-col">
                         <label for="address" class="font-semibold leading-none mt-4">住所</label>
-                        <input type="text" name="address" class="w-auto py-2 placeholder-gray-300 border border-gray-300 rounded-md" id="address" value="{{old('address')}}" placeholder="那覇市〇〇">
+                        <input type="text" name="address" class="w-auto py-2 placeholder-gray-300 border border-gray-300 rounded-md" id="address" value="{{old('address',$store->address)}}" placeholder="那覇市〇〇">
                     </div>
                 </div>
 
