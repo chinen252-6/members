@@ -141,7 +141,7 @@ class StoreController extends Controller
 
     $store->save(); // 変更を保存
 
-    return redirect()->route('store.edit', ['store' => $store->store_id])->with('message', '店舗情報を更新しました');
+    return redirect()->route('store.show', ['store' => $store->store_id])->with('message', '店舗情報を更新しました');
 
 }
 
