@@ -64,9 +64,14 @@ Route::get('/', [StoreController::class, 'home'])->name('home');
 
 
 
-Route::resource('review',ReviewController::class);
+Route::resource('review', ReviewController::class)->except(['create', 'store']); 
 Route::get('review/comment/{store_id}', [ReviewController::class, 'create'])->name('review.comment');
 Route::post('review/store', [ReviewController::class, 'store'])->name('review.store');;
+Route::middleware('auth')->group(function () {
+    Route::get('/review/{review}/edit', [ReviewController::class, 'edit'])->name('review.edit');
+    Route::put('/review/{review}', [ReviewController::class, 'update'])->name('review.update');
+    Route::delete('/review/{review}', [ReviewController::class, 'destroy'])->name('review.destroy');
+});
 
 
 
