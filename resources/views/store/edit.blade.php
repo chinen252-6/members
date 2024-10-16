@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+        <h2 class="font-KanjukuGothic text-xl text-gray-800 leading-tight">
         {{ $store->store_name }}の編集画面
         </h2>
         <x-validation-errors class="mb-4" :errors="$errors" :requiredFields="['店名', 'どんな店', '詳しく紹介', '住所']" /> 

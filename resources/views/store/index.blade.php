@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+        <h2 class="font-KanjukuGothic text-xl text-gray-800 leading-tight">
             @if($region_name)
                 {{ $region_name }}の店舗一覧
             @else
